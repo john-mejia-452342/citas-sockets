@@ -22,15 +22,17 @@
         </div>
 
         <div class="col-6">
-            <form action="escritorio.html" target="_blank">
+            <form action="escritorio.html" target="_blank" onsubmit="return validarEscritorio()">
                 <input name="escritorio" 
                        id="escritorio"
                        type="number" 
                        class="form-control" 
                        placeholder="Escritorio" 
-                       autofocus 
-                       required>
+                       autofocus >
                 <br>
+                <div id="error" class="error">
+
+                </div>
                 <button type="submit" class="btn btn-primary">
                     Ingresar
                 </button>
@@ -41,10 +43,37 @@
 
 </body>
 <script>
-    async function validarEscritorio(){
-        
+    let error = document.getElementById('error');
+    const escritoriosUtilizados = new Set();
+
+    function validarEscritorio() {
+        const escritorioInput = document.getElementById('escritorio');
+        const escritorio = escritorioInput.value;
+
+        if (!escritorio) {
+            mostrarError("El campo de escritorio no puede estar vacío.");
+            return false;
+        }
+
+        if (isNaN(escritorio) || escritorio <= 0) {
+            mostrarError("El escritorio no puede ser 0 o un número negativo.");
+            return false;
+        }
+
+        if (escritoriosUtilizados.has(escritorio)) {
+            mostrarError("El escritorio ya está en uso.");
+            return false; 
+        }
+
+        escritoriosUtilizados.add(escritorio);
+
+        return true; 
     }
 
+    function mostrarError(mensaje) {
+        error.textContent = mensaje;
+    }
 </script>
+
 
 </html>

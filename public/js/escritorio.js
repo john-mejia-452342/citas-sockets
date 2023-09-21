@@ -1,7 +1,3 @@
-// Importa io desde el módulo socket.io
-// import * as io from 'socket.io'
-
-// Referencias HTML
 const lblEscritorio = document.querySelector('h1');
 const btnAtender = document.querySelector('button');
 const lblTicket = document.querySelector('small');

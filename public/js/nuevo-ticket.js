@@ -1,17 +1,15 @@
-// Importa io desde el módulo socket.io-client
-// import { io } from 'socket.io-client';
-
-// Referencias HTML
 const lblNuevoTicket = document.querySelector('#lblNuevoTicket');
 const btnCrear = document.querySelector('button');
 
 const socket = io();
 
 socket.on('connect', () => {
+  console.log("Conectado");
   btnCrear.disabled = false;
 });
 
 socket.on('disconnect', () => {
+  console.log("Desconectado");
   btnCrear.disabled = true;
 });
 
