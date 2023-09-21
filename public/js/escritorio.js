@@ -1,5 +1,5 @@
 // Importa io desde el módulo socket.io
-import { io } from 'socket.io-client';
+// import * as io from 'socket.io'
 
 // Referencias HTML
 const lblEscritorio = document.querySelector('h1');
@@ -16,7 +16,16 @@ if (!searchParams.has('escritorio')) {
 }
 
 const escritorio = searchParams.get('escritorio');
-lblEscritorio.innerText = escritorio;
+console.log(escritorio)
+
+// Validar que el escritorio sea un número válido antes de mostrarlo
+if (!isNaN(escritorio) && escritorio > 0) {
+  lblEscritorio.innerText = `Escritorio ${escritorio}`;
+  document.title = `Escritorio ${escritorio}`;
+} else {
+  // Redirige a index.html si el número de escritorio no es válido
+  window.location.href = 'index.html';
+}
 
 divAlerta.style.display = 'none';
 

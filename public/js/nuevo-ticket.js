@@ -1,5 +1,5 @@
 // Importa io desde el módulo socket.io-client
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 
 // Referencias HTML
 const lblNuevoTicket = document.querySelector('#lblNuevoTicket');

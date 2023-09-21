@@ -23,14 +23,13 @@
 
         <div class="col-6">
             <form action="escritorio.html" target="_blank">
-
                 <input name="escritorio" 
-                       type="text" 
+                       id="escritorio"
+                       type="number" 
                        class="form-control" 
                        placeholder="Escritorio" 
                        autofocus 
                        required>
-
                 <br>
                 <button type="submit" class="btn btn-primary">
                     Ingresar
@@ -38,7 +37,14 @@
             </form>
         </div>
     </div>
+    <script src="./socket.io/socket.io.js"></script>
 
 </body>
+<script>
+    async function validarEscritorio(){
+        
+    }
+
+</script>
 
 </html>

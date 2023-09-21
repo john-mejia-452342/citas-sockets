@@ -1,5 +1,5 @@
 // Importa io desde el módulo socket.io-client
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 
 // Referencias del HTML
 const lblOnline = document.querySelector('#lblOnline');
