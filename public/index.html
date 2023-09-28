@@ -48,6 +48,38 @@
     <script src="./socket.io/socket.io.js"></script>
 
 </body>
+<script>
+    let error = document.getElementById('error');
+    const escritoriosUtilizados = new Set();
+
+    function validarEscritorio() {
+        const escritorioInput = document.getElementById('escritorio');
+        const escritorio = escritorioInput.value;
+
+        if (!escritorio) {
+            mostrarError("El campo de escritorio no puede estar vacío.");
+            return false;
+        }
+
+        if (isNaN(escritorio) || escritorio <= 0) {
+            mostrarError("El escritorio no puede ser 0 o un número negativo.");
+            return false;
+        }
+
+        if (escritoriosUtilizados.has(escritorio)) {
+            mostrarError("El escritorio ya está en uso.");
+            return false;
+        }
+
+        escritoriosUtilizados.add(escritorio);
+
+        return true;
+    }
+
+    function mostrarError(mensaje) {
+        error.textContent = mensaje;
+    }
+</script>
 <style>
     html,
     body {
@@ -66,6 +98,7 @@
         margin: 0;
         height: 100vh;
         display: flex;
+        background-color: #f5f5f5;
     }
 
     .container {
@@ -199,38 +232,6 @@
         }
     }
 </style>
-<script>
-    let error = document.getElementById('error');
-    const escritoriosUtilizados = new Set();
-
-    function validarEscritorio() {
-        const escritorioInput = document.getElementById('escritorio');
-        const escritorio = escritorioInput.value;
-
-        if (!escritorio) {
-            mostrarError("El campo de escritorio no puede estar vacío.");
-            return false;
-        }
-
-        if (isNaN(escritorio) || escritorio <= 0) {
-            mostrarError("El escritorio no puede ser 0 o un número negativo.");
-            return false;
-        }
-
-        if (escritoriosUtilizados.has(escritorio)) {
-            mostrarError("El escritorio ya está en uso.");
-            return false;
-        }
-
-        escritoriosUtilizados.add(escritorio);
-
-        return true;
-    }
-
-    function mostrarError(mensaje) {
-        error.textContent = mensaje;
-    }
-</script>
 
 
 </html>
