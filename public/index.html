@@ -14,14 +14,14 @@
 <body>
     <div class="container">
         <div class="container-colas">
-            <h1>Programa de Colas</h1>
+            <h1>Programa de Citas</h1>
 
             <div class="container-pantalla">
                 <a class="btn btn-primary" href="publico.html" target="_blank">Pantalla publica</a>
                 <a class="btn btn-secondary" href="nuevo-ticket.html" target="_blank">Crear Tickets</a>
             </div>
         </div>
-        
+
         <div class="container-escritorio">
             <div class="col-6">
                 <form action="escritorio.html" target="_blank" onsubmit="return validarEscritorio()"
@@ -42,39 +42,64 @@
                     </div>
                 </form>
             </div>
-        </div>     
+        </div>
     </div>
 
     <script src="./socket.io/socket.io.js"></script>
 
 </body>
 <style>
-    body{
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    body {
         padding: 0;
         margin: 0;
         height: 100vh;
         display: flex;
     }
-    .container{
+
+    .container {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
+        flex-wrap: wrap;
     }
-    .container-pantalla{
+
+    .container-pantalla {
         display: flex;
         gap: 20px;
     }
+
     .error {
         position: absolute;
         margin-top: 10px;
         color: red;
     }
-    .container-colas{
+
+    .container-colas {
         display: flex;
         align-items: center;
         align-content: center;
         flex-direction: column;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+        padding: 4%;
+        border-radius: 10px;
     }
+    .container-colas h1{
+        margin-bottom: 20px;
+    }
+
     .btn-submit {
         margin-top: 50px;
     }
