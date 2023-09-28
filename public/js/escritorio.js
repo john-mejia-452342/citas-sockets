@@ -7,19 +7,16 @@ const lblPendientes = document.querySelector('#lblPendientes');
 const searchParams = new URLSearchParams(window.location.search);
 
 if (!searchParams.has('escritorio')) {
-  // Redirige a index.html si no se proporciona el escritorio
   window.location.href = 'index.html';
 }
 
 const escritorio = searchParams.get('escritorio');
 console.log(escritorio)
 
-// Validar que el escritorio sea un número válido antes de mostrarlo
 if (!isNaN(escritorio) && escritorio > 0) {
   lblEscritorio.innerText = `Escritorio ${escritorio}`;
   document.title = `Escritorio ${escritorio}`;
 } else {
-  // Redirige a index.html si el número de escritorio no es válido
   window.location.href = 'index.html';
 }
 
@@ -58,6 +55,6 @@ function mostrarTickets(numero) {
   } else {
     divAlerta.style.display = 'none';
     lblPendientes.style.display = '';
-    lblPendientes.innerText = numero;
+    lblPendientes.innerText = numero + " Tickets";
   }
 }
