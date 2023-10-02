@@ -44,12 +44,10 @@ class TicketControl {
         this.ultimo = jsonData.ultimo;
         this.ultimos4 = jsonData.ultimos4;
       } else {
-        // Es otro día
         this.guardarDB();
       }
     } catch (error) {
       console.error('Error al leer el archivo de datos:', error);
-      // Trata el error apropiadamente
     }
   }
 
@@ -59,7 +57,6 @@ class TicketControl {
       await fs.writeFile(dbPath, JSON.stringify(this.toJson));
     } catch (error) {
       console.error('Error al guardar el archivo de datos:', error);
-      // Trata el error apropiadamente
     }
   }
 
@@ -73,7 +70,6 @@ class TicketControl {
   }
 
   atenderTicket(escritorio) {
-    // No tenemos tickets
     if (this.tickets.length === 0) {
       return null;
     }
