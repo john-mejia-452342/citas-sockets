@@ -11,39 +11,18 @@ class Server {
         this.port   = process.env.PORT;
         this.server = http.createServer( this.app );
         this.io     = new SocketServer( this.server );
-
         this.paths = {};
-
-        // Middlewares
         this.middlewares();
-
-        // Rutas de mi aplicación
         this.routes();
-
-        // Sockets
         this.sockets();
     }
 
     middlewares() {
-
-        // CORS
         this.app.use( cors() );
-
-        // Directorio Público
         this.app.use( express.static('public') );
-
     }
-
-    routes() {
-        
-        // this.app.use( this.paths.auth, require('../routes/auth'));
-        
-    }
-
     sockets() {
-
         this.io.on('connection', socketController );
-
     }
 
     listen() {

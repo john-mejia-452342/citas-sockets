@@ -1,5 +1,5 @@
 import path from 'path';
-import fs from 'fs/promises'; // Importa fs con soporte para promesas
+import fs from 'fs/promises';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 

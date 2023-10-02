@@ -1,4 +1,4 @@
-import TicketControl from '../models/ticket-control.js'; // Asegúrate de que la ruta sea correcta y de usar la extensión .mjs si corresponde
+import TicketControl from '../models/ticket-control.js'; 
 
 const ticketControl = new TicketControl();
 
@@ -11,7 +11,6 @@ const socketController = (socket) => {
         const siguiente = ticketControl.siguiente();
         callback(siguiente);
 
-        // TODO: Notificar que hay un nuevo ticket pendiente de asignar
         socket.broadcast.emit('tickets-pendientes', ticketControl.tickets.length);
     });
 
@@ -25,11 +24,8 @@ const socketController = (socket) => {
 
         const ticket = ticketControl.atenderTicket(escritorio);
 
-        // TODO: Notificar cambio en los ultimos4
         socket.broadcast.emit('estado-actual', ticketControl.ultimos4);
-        // Emitir para el propio usuario de 'atender-ticket'
         socket.emit('tickets-pendientes', ticketControl.tickets.length);
-        // Emitir para todos los usuarios menos el que emite el 'atender-ticket'
         socket.broadcast.emit('tickets-pendientes', ticketControl.tickets.length);
 
         if (!ticket) {
