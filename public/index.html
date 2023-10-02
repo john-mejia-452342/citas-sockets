@@ -101,6 +101,13 @@
 
     function mostrarError(mensaje) {
         error.textContent = mensaje;
+        quitarerror()
+    }
+
+    function quitarerror(){
+        setTimeout(() => {
+         error.textContent = ''  
+        }, 3000);
     }
 </script>
 <style>
